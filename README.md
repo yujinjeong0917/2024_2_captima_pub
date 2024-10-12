@@ -45,8 +45,9 @@ To get started with this project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yujinjeong0917/CAPTIMA-Festival-Menu-Web-Page.git
+   git clone https://github.com/yujinjeong0917/2024_2_captima_pub_00.git
    cd CAPTIMA-Festival-Menu-Web-Page
+
    ```
 
 2. Install dependencies:
