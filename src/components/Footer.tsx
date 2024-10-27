@@ -1,42 +1,55 @@
 import React, { useState } from 'react';
-import { Copy, ExternalLink } from 'lucide-react';
+import { Copy, MessageCircle, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const [copied, setCopied] = useState(false);
-  const accountNumber = '333333333';
+  const [copySuccess, setCopySuccess] = useState(false);
+  const accountNumber = "하나은행 53491048861307 오윤진";
 
-  const copyAccountNumber = () => {
-    navigator.clipboard.writeText(accountNumber);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+
+  const handleCopyAccount = async () => {
+    try {
+      await navigator.clipboard.writeText(accountNumber);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
   };
 
   return (
-    <footer className="bg-gray-800 py-4 px-4 fixed bottom-0 left-0 right-0">
-      <div className="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto">
-        <div className="mb-4 sm:mb-0">
-          <button
-            onClick={copyAccountNumber}
-            className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center hover:bg-gray-600 transition-colors"
-          >
-            {copied ? '복사됨!' : `계좌번호: ${accountNumber}`}
-            <Copy className="ml-2" size={18} />
-          </button>
-        </div>
-        <div>
-          <a
-            href="https://open.kakao.com/o/sBFth7Tg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-yellow-500 text-gray-900 px-4 py-2 rounded-md flex items-center hover:bg-yellow-600 transition-colors"
-          >
-            카카오톡으로 바로 이동하기
-            <ExternalLink className="ml-2" size={18} />
-          </a>
+    <div className="fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-lg border-t border-gray-800">
+      <div className="max-w-7xl mx-auto px-3 md:px-4 py-3 md:py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-1 md:gap-2">
+              <span className="text-gray-400 text-xs md:text-base">계좌번호:</span>
+              <span className="font-medium text-sm md:text-base">{accountNumber}</span>
+              <button 
+                onClick={handleCopyAccount}
+                className="p-1.5 md:p-2 hover:bg-gray-800 rounded-full transition-colors"
+              >
+                <Copy size={16} className="md:w-5 md:h-5" />
+              </button>
+              {copySuccess && (
+                <span className="text-green-400 text-xs md:text-sm">복사완료!</span>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center gap-2 md:gap-4">
+            <a
+              href="https://open.kakao.com/o/sDBGbUWg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-white text-black rounded-full text-xs md:text-sm font-medium"
+            >
+              <MessageCircle size={14} className="md:w-4 md:h-4" />
+              카카오톡 문의하기
+              <ExternalLink size={12} className="md:w-3.5 md:h-3.5" />
+            </a>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
-
 export default Footer;
