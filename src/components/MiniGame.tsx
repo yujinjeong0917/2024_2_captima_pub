@@ -86,9 +86,10 @@ const MiniGame: React.FC = () => {
               <li className="flex gap-2">
                 <span className="text-yellow-400">5.</span>
                 <span>Run! 버튼을 눌러 결과를 확인하세요.</span>
+              </li>
               <li className="flex gap-2">
                 <span className="text-yellow-400"> ** </span>
-                <span> 입금과 주문은 테이블당 한명이 일괄적으로 해주세요 :) </span>
+                <span>입금과 주문은 테이블당 한명이 일괄적으로 해주세요 :)</span>
               </li>
             </ol>
           </div>
