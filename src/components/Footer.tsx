@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               className="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-white text-black rounded-full text-xs md:text-sm font-medium"
             >
               <MessageCircle size={14} className="md:w-4 md:h-4" />
-              카카오톡 문의하기
+              주문하기
               <ExternalLink size={12} className="md:w-3.5 md:h-3.5" />
             </a>
           </div>
