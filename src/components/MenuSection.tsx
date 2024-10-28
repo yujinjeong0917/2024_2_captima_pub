@@ -18,7 +18,7 @@ const menuItems: MenuCategory[] = [
     category: "안주",
     items: [
       { name: "도리토스타코", price: 8000, description: "산타도 이마를 탁 치고 가는 그 맛...!", image: "/img/tacco.jpeg" },
-      { name: "묵사발", price: 8000, description: "쌈@뽕한 무돈까가 직접 만든 묵사발", image: "/img/mook.jpeg" },
+      { name: "묵사발", price: 8000, description: "쌈@뽕한 루돌프가 직접 만든 묵사발", image: "/img/mook.jpeg" },
       { name: "쏘야볶음", price: 12000, description: "매콤달콤한 소스로 볶아낸 바삭한 소야볶음, 술안주의 정석" },
       { name: "두부김치", price: 12000, description: "부드러운 두부와 아삭한 김치의 완벽한 만남, 소주와 찰떡궁합" },
       { name: "제육볶음", price: 12000, description: "매콤하게 볶아낸 제육과 신선한 야채의 조화, 든든한 안주" },
