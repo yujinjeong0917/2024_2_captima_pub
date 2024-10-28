@@ -3,8 +3,9 @@ import { Copy, MessageCircle, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const [copySuccess, setCopySuccess] = useState(false);
-  const accountNumber = "하나은행 53491048861307 오윤진";
-
+  // 환경변수 사용
+  const accountNumber = import.meta.env.VITE_ACCOUNT_NUMBER || '';
+  const kakaoUrl = import.meta.env.VITE_KAKAO_URL || '';
 
   const handleCopyAccount = async () => {
     try {
@@ -37,7 +38,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex items-center gap-2 md:gap-4">
             <a
-              href="https://open.kakao.com/o/sDBGbUWg"
+              href={kakaoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-white text-black rounded-full text-xs md:text-sm font-medium"
@@ -52,4 +53,5 @@ const Footer: React.FC = () => {
     </div>
   );
 };
+
 export default Footer;
