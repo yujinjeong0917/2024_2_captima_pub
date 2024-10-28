@@ -17,12 +17,13 @@ const MiniGame: React.FC = () => {
     let newResults: number[] = new Array(playerCount).fill(0);
 
     switch (intensity) {
-      case 1:
+      case 1:  
         if (playerCount > 1) {
           const amountPerPerson = totalAmount / (playerCount - 1);
           newResults = newResults.map((_, index) => index === 0 ? 0 : amountPerPerson);
         }
         break;
+
       case 2:
         if (playerCount >= 3) {
           const amountPerPerson = totalAmount / 3;
@@ -31,6 +32,7 @@ const MiniGame: React.FC = () => {
           }
         }
         break;
+
       case 3:
         if (playerCount >= 3) {
           const indices: number[] = [];
@@ -43,6 +45,7 @@ const MiniGame: React.FC = () => {
           newResults[indices[2]] += totalAmount * 0.5;
         }
         break;
+
       case 4:
         newResults[Math.floor(Math.random() * playerCount)] = totalAmount;
         break;
@@ -83,6 +86,9 @@ const MiniGame: React.FC = () => {
               <li className="flex gap-2">
                 <span className="text-yellow-400">5.</span>
                 <span>Run! 버튼을 눌러 결과를 확인하세요.</span>
+              <li className="flex gap-2">
+                <span className="text-yellow-400"> ** </span>
+                <span> 입금과 주문은 테이블당 한명이 일괄적으로 해주세요 :) </span>
               </li>
             </ol>
           </div>
